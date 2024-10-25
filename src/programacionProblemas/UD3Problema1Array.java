@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class UD3Problema1Array {
     public static void main(String[] args) {
+        //Creamos las variables
         
     }
     
