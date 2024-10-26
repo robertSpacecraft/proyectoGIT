@@ -12,8 +12,12 @@ public class UD3Problema1Array {
         
         Scanner input = new Scanner(System.in);
         
+        //Pedimos los datos y los almacenamos en una cadena de caracteres
         System.out.print("Introduzca los datos: ");
         lineaDatos = input.nextLine();
+        
+        //Eliminamos los espacios posibles
+        String lineaDatosEspacios = lineaDatos.replaceAll("\\s+", "");
         
         
         
@@ -30,6 +34,7 @@ public class UD3Problema1Array {
             
         }
         System.out.println("Las medidas obtenidas son:" + lineaDatos);
+        System.out.println("Las medidas obtenidas son:" + lineaDatosEspacios);
     }
     
 }
