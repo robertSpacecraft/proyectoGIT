@@ -12,6 +12,7 @@ public class UD3Problema3 {
 
         Scanner input = new Scanner(System.in);
 
+        //Pedimos el tamaño de la matriz, asumimos que se trata de una matriz cuadrada por lo que asignamos el mismo valor a las columnas
         System.out.print("Introduzca el tamaño de la matriz: ");
         if (input.hasNextInt()) {
             filas = input.nextInt();
@@ -35,12 +36,25 @@ public class UD3Problema3 {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
 
-                System.out.print(matrix[i][j] + "\n");
+                System.out.print(matrix[i][j]);
 
             }
+            System.out.println();
 
         }
-        System.out.println();
+        
+       
+        for (int i = 0; i < matrix.length; i++) {
+            int sumaFilas = 0;
+            for (int j = 0; j < matrix[i].length; j++) {
+                
+            sumaFilas += matrix[i][j];
+                
+
+            }
+            System.out.println("Fila: " + (i + 1) + ": " + sumaFilas);
+        }
+        
     }
 
 }
