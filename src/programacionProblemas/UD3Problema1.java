@@ -1,72 +1,43 @@
-//Roberto Amorós Linares
+package programacionProblemas;
 
+//Roberto Amorós Linares
 import java.util.Scanner;
 
 public class UD3Problema1 {
 
     public static void main(String[] args) {
-
-        //Aquí declararemos las variables, constantes y objetos que necesitemos
-        float[][] sistoDiasto = new float[3][2];
-
-        //Según los datos médicos, estás son las medidas mínimas y máximas esperadas cuando se toma la tensión.
-        final int sistoMin = 9;
-        final int sistoMax = 18;
-        final int diastoMin = 6;
-        final int diastoMax = 9;
-
         Scanner input = new Scanner(System.in);
 
-        //Esta estructura repetitiva anidada pasará por todos los espacios del array bidimensional para rellenarlo con datos
-        for (int i = 0; i < sistoDiasto.length; i++) {
-            for (int j = 0; j < sistoDiasto[i].length; j++) {
+        float valorIntroducido;
+        float[] sistolica = new float[3];//cambiar a 10
+        float[] diastolica = new float[3];//cambiar a 10
 
-                System.out.print("Introduce los Datos: ");
+        double[] sistoDiasto = new double[sistolica.length + diastolica.length];
+        int maxDatos = 6;//cambiar a 20
+        int contador = 0;
 
-                //Validamos que los datos que se introducen sean correctos
-                boolean verify = false;
-                int contadorMedidas = 0;
-                while (!verify) {
+        System.out.print("Introduce los datos: ");
+        while (contador < maxDatos) {
 
-                    //Primero comprobamos que el valor sea del tipo float
-                    if (input.hasNextFloat()) {
+            if (!input.hasNextDouble()) {
+                input.next();
 
-                        float valor = input.nextFloat(); //Le asigno el valor a una variable para comprobar si está dentro de los límites adecuados
+            } else if ((valorIntroducido = input.nextFloat()) >= 3 && valorIntroducido <= 22) {
 
-                        //Si está dentro de los límites el valor de "valor" pasará al array y "verify" pasará a ser true
-                        if (valor > diastoMin && valor < sistoMax && valor != 0) {
+                sistoDiasto[contador] = valorIntroducido;
+                contador++;
 
-                            sistoDiasto[i][j] = valor;
-                            verify = true;
-                            contadorMedidas++;
-                            
-                        } else {
-
-                            System.out.println("Valor inválido, introduzca un número correcto");
-                            System.out.print("Introduce los datos: ");
-                            
-                        }
-                    } else {
-
-                        System.out.println("Debes introducir un valor numérico");
-                        System.out.print("Introduce los datos: ");
-                        input.nextLine();
-                    }
-                    input.nextLine(); //borramos los datos de buffer para una nueva interacción
-                }
-
+            } else if (valorIntroducido == 0 && contador >= 2){
+            
+            contador = maxDatos;
             }
 
         }
-        System.out.println("TENSIÓN ARTERIAL\n-----------------");
-
         for (int i = 0; i < sistoDiasto.length; i++) {
 
-            System.out.print("Medida " + (i + 1) + ":\nSistolica = " + sistoDiasto[i][0] + "\nDiastólica = " + sistoDiasto[i][1]);
-
-            System.out.println("\n--------------------------");
+            System.out.println("Los datos introducidos son: " + sistoDiasto[i]);
         }
-
+        System.out.println("");
     }
 
 }
