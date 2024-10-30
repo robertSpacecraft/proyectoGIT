@@ -12,7 +12,6 @@ public class UD3Problema1 {
         float[] sistolica = new float[3];//cambiar a 10
         float[] diastolica = new float[3];//cambiar a 10
 
-        double[] sistoDiasto = new double[sistolica.length + diastolica.length];
         int maxDatos = 6;//cambiar a 20
         int contador = 0;
 
@@ -24,18 +23,30 @@ public class UD3Problema1 {
 
             } else if ((valorIntroducido = input.nextFloat()) >= 3 && valorIntroducido <= 22) {
 
-                sistoDiasto[contador] = valorIntroducido;
+                if (contador % 2 == 0) {
+
+                    sistolica[contador / 2] = valorIntroducido;
+                } else {
+
+                    diastolica[contador / 2] = valorIntroducido;
+                }
                 contador++;
 
-            } else if (valorIntroducido == 0 && contador >= 2){
-            
-            contador = maxDatos;
+            } else if (valorIntroducido == 0 && contador >= 2) {
+
+                contador = maxDatos;
             }
 
         }
-        for (int i = 0; i < sistoDiasto.length; i++) {
+        for (int i = 0; i < sistolica.length; i++) {
 
-            System.out.println("Los datos introducidos son: " + sistoDiasto[i]);
+            System.out.println("Los datos introducidos son: " + sistolica[i]);
+        }
+        System.out.println("");
+
+        for (int i = 0; i < diastolica.length; i++) {
+
+            System.out.println("Los datos introducidos son: " + diastolica[i]);
         }
         System.out.println("");
     }
