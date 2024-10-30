@@ -29,7 +29,7 @@ public class UD3Problema1 {
 
                 //Comprobamos si el valor introducido está en rango, de no estar lo descartamos
             } else if ((valorIntroducido = input.nextFloat()) >= 3 && valorIntroducido <= 22) {
-
+                //Asignamos el valor par a sistólica y el impar a la diastólica
                 if (contador % 2 == 0) {
 
                     valorSistolica = valorIntroducido;
@@ -39,12 +39,15 @@ public class UD3Problema1 {
 
                     valorDiastolica = valorIntroducido;
                 }
-                
+                //Comrpobamos que la Sistólica sea mayor que la diastólica
                 if (valorSistolica > valorDiastolica && valorDiastolica != 0) {   
                     sistolica[indiceArrays] = valorSistolica;
                     diastolica[indiceArrays] = valorDiastolica;
                     indiceArrays++;
+                }else if(valorDiastolica != 0){//Esto es por si se mete una sistólica menor que una diastólica
+                contador--;
                 }
+                
                 System.out.println("contador: " + contador);
                 System.out.println("ValorIntroducido: " + valorIntroducido);
                 System.out.println("Valor Sistolica: " + valorSistolica);
